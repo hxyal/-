@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="https://i.ibb.co/XGHd03N/can.png">
+    <title>Bozalfa - Home</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+         :root {
+            --primary-color: #e3b21b;
+            --secondary-color: #1a1a1a;
+            --bg-dark: #0a0a0a;
+            --bg-darker: #070707;
+            --text-color: #ffffff;
+            --accent-color: #2c2c2c;
+            --hover-color: #333;
+            --border-color: #444;
+            --nav-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor:url('https://i.imgur.com/6wmyrkK.gif'), auto;
+        }
+        ::-webkit-scrollbar {
+    display: none;
+}
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            font-family: 'Source Code Pro', monospace;
+            line-height: 1.6;
+            min-height: 100vh;
+            
+        }
+
+        nav {
+            background-color: var(--bg-darker);
+            height: var(--nav-height);
+            display: flex;
+            justify-content: center;
+            font-family: 'Rajdhani', sans-serif;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(255, 0, 0, 0.1);
+        }
+
+        nav a {
+            color: var(--text-color);
+            font-size: 19px;
+            margin: 0 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            font-family: 'Rajdhani', sans-serif;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+        }
+
+        .container {
+            margin-top: calc(var(--nav-height) + 20px);
+            padding: 20px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ascii-art {
+            white-space: pre-wrap;
+            font-size: 14px;
+            color: var(--primary-color);
+            line-height: 1.2;
+            overflow-x: auto;
+            text-align: center;
+            margin: 20px 0 40px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px rgba(255, 0, 0, 0.3);
+            }
+            to {
+                text-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+            }
+        }
+
+        .description {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.5;
+            text-align: justify;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            border: 2px solid #e3b21b; /* Kırmızı kenarlık */
+            color: #e3b21b; /* Kırmızı yazı */
+            text-decoration: none;
+            font-size: 18px;
+            background-color: transparent;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background-color: #e3b21b; /* Hoverda kırmızı arka plan */
+            color: #0a0a0a; /* Yazı rengini siyah yap */
+             transform: scale(0.9);
+        }
+        .terminal {
+            background-color: #0C0C0C;
+            color: #FFFFFF;
+            border: 1px solid #333;
+            border-radius: 5px;
+            padding: 20px;
+            max-width: 90%;
+            margin: 20px auto;
+            font-family: 'Source Code Pro', monospace;
+            font-size: 14px;
+            text-align: left;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .terminal-header {
+            background-color: #2F2F2F;
+            padding: 8px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .terminal-title {
+            color: #FFFFFF;
+            margin-left: 35px;
+            font-size: 14px;
+        }
+
+        .terminal-buttons {
+            position: absolute;
+            left: 8px;
+            display: flex;
+            gap: 6px;
+        }
+
+        .terminal-button {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .terminal-button.close {
+            background-color: #FF5F56;
+        }
+
+        .terminal-button.minimize {
+            background-color: #FFBD2E;
+        }
+
+        .terminal-button.maximize {
+            background-color: #27C93F;
+        }
+
+        .terminal-content {
+            margin-top: 0px;
+            padding-top: 10px;
+        }
+
+        .terminal-line {
+            display: flex;
+            margin: 5px 0;
+            line-height: 1.3;
+        }
+
+        .prompt {
+            color: #e3b21b;
+            margin-right: 10px;
+            white-space: nowrap;
+        }
+
+        .command {
+            color: #FFFFFF;
+            word-wrap: break-word;
+            flex: 1;
+        }
+
+        .output {
+            color: #AAAAAA;
+            margin-left: 5px;
+            word-wrap: break-word;
+        }
+        @media (max-width: 768px) {
+            nav {
+                padding: 10px;
+                height: auto;
+                flex-wrap: wrap;
+                font-family: 'Rajdhani', sans-serif;
+            }
+
+            nav a {
+                margin: 10px 15px;
+                font-size: 14px;
+                font-family: 'Rajdhani', sans-serif;
+            }
+
+            .container {
+                margin-top: 120px;
+                padding: 10px;
+            }
+
+            .ascii-art {
+                font-size: 8px;
+                margin: 10px 0 20px;
+            }
+          .font {
+           font-family: 'Rajdhani', sans-serif;
+          }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/-/exploit.html">EXPLOITS</a>
+        <a href="/-/update.html">UPDATES</a>
+        <a href="/-/promotion.html">PROMOTION</a>
+        <a href="/-/developer.html">DEVELOPERS</a>
+        <a href="/-/index.html">DOWNLOAD</a>
+    </nav>
+
+    <div class="container">
+        <div class="ascii-art">
+	▀█████████▄   ▄██████▄   ▄███████▄     ▄████████  ▄█          ▄████████    ▄████████ 
+	  ███    ███ ███    ███ ██▀     ▄██   ███    ███ ███         ███    ███   ███    ███ 
+	  ███    ███ ███    ███       ▄███▀   ███    ███ ███         ███    █▀    ███    ███ 
+	 ▄███▄▄▄██▀  ███    ███  ▀█▀▄███▀▄▄   ███    ███ ███        ▄███▄▄▄       ███    ███ 
+	▀▀███▀▀▀██▄  ███    ███   ▄███▀   ▀ ▀███████████ ███       ▀▀███▀▀▀     ▀███████████ 
+	  ███    ██▄ ███    ███ ▄███▀         ███    ███ ███         ███          ███    ███ 
+	  ███    ███ ███    ███ ███▄     ▄█   ███    ███ ███▌    ▄   ███          ███    ███ 
+	 ▄█████████▀   ▀██████▀   ▀████████▀   ███    █▀  █████▄▄██   ███          ███    █▀    
+        </div>
+       <div class="terminal">
+        
+     <div class="terminal-content">
+    <div class="terminal-line">
+        <span class="prompt">root@bozalfa:~#</span>
+        <span class="command">cat "bozalfadescription.txt"</span>
+    </div>
+    <div class="terminal-line">
+        <span class="output">
+            Thank you for your interest. I am Bozalfa.
+        </span>
+    </div>
+
+    <div class="terminal-line">
+        <span class="prompt">root@bozalfa:~# </span>
+        <span class="command">python boz.py</span>
+    </div>
+ <div class="terminal-line">
+       <span class="output">Do you want to continue? Y/n</span>
+    </div>
+</div>
+<center>
+        <a href="https://www.youtube.com/watch?v=N3kkNfH4yco" class="btn">Download</a>
+        <a href="https://www.youtube.com/watch?v=NMRhx71bGo4" class="btn">VirusTotal</a>
+        <a href="https://www.youtube.com/watch?v=UceaB4D0jpo" class="btn">Tiktok</a>
+        <a href="https://www.youtube.com/watch?v=VNfFTuIk-dQ" class="btn">Instagram</a>
+        <a href="https://www.youtube.com/watch?v=MqsQI2Di2xY" class="btn">Youtube</a>
+</center>
+    </div>
+  </div>
+</body>
+</html>
+
+ <script>
+        document.addEventListener('contextmenu', function (event) {
+            event.preventDefault(); // Sağ tıklamayı engeller
+        });
+
+        document.addEventListener('copy', function (event) {
+            event.preventDefault(); // Kopyalamayı engeller
+        });
+
+        document.addEventListener('paste', function (event) {
+            event.preventDefault(); // Yapıştırmayı engeller
+        });
+
+        document.addEventListener('selectstart', function (event) {
+            event.preventDefault(); // Seçim yapılmasını engeller
+        });
+
+        document.addEventListener('mousedown', function (event) {
+            if (event.button === 2) {
+                event.preventDefault(); // Sağ tıklamayı engeller
+            }
+        });
+    </script>
+
+
+
+            
